@@ -1,0 +1,155 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="320" height="320">
+  <defs>
+    <style>
+      .bg { fill: #0a0a0f; }
+
+      .brand {
+        font-family: 'Syne', 'Arial Black', sans-serif;
+        font-size: 38px;
+        font-weight: 800;
+        fill: #f0f0f8;
+        letter-spacing: -1px;
+      }
+      .brand-accent { fill: #4f8ef7; }
+
+      .sub-brand {
+        font-family: 'Space Mono', monospace;
+        font-size: 10px;
+        fill: #55556a;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      .orbit-ring {
+        fill: none;
+        stroke: #2a2a3a;
+        stroke-width: 1;
+      }
+      .orbit-ring-accent {
+        fill: none;
+        stroke: #4f8ef7;
+        stroke-width: 1;
+        opacity: 0.3;
+      }
+
+      /* Orbit animations */
+      .orbit1 { animation: orbit1 8s linear infinite; }
+      .orbit2 { animation: orbit2 12s linear infinite; }
+      .orbit3 { animation: orbit3 6s linear infinite; }
+      .orbit1-rev { animation: orbit1 8s linear infinite reverse; }
+
+      .spin-slow { animation: spinSlow 20s linear infinite; }
+      .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+      .fade-in { animation: fadeIn 1s ease both; }
+      .float { animation: floatY 4s ease-in-out infinite; }
+
+      @keyframes orbit1 {
+        from { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
+      }
+      @keyframes orbit2 {
+        from { transform: rotate(45deg) translateX(130px) rotate(-45deg); }
+        to   { transform: rotate(405deg) translateX(130px) rotate(-405deg); }
+      }
+      @keyframes orbit3 {
+        from { transform: rotate(200deg) translateX(60px) rotate(-200deg); }
+        to   { transform: rotate(560deg) translateX(60px) rotate(-560deg); }
+      }
+      @keyframes spinSlow {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.6; r: 6; }
+        50%       { opacity: 1;   r: 8; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(-6px); }
+      }
+    </style>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softBloom">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <radialGradient id="centerGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#0a0a0f;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="320" height="320" class="bg" rx="16"/>
+
+  <!-- Center glow -->
+  <circle cx="160" cy="145" r="100" fill="url(#centerGrad)" filter="url(#softBloom)"/>
+
+  <!-- Orbit rings -->
+  <circle cx="160" cy="145" r="60" class="orbit-ring"/>
+  <circle cx="160" cy="145" r="90" class="orbit-ring"/>
+  <circle cx="160" cy="145" r="130" class="orbit-ring-accent spin-slow"/>
+
+  <!-- Dashed outer ring (spinning) -->
+  <circle cx="160" cy="145" r="130" fill="none" stroke="#4f8ef7" stroke-width="0.5"
+          stroke-dasharray="6 14" opacity="0.4" style="animation: spinSlow 20s linear infinite; transform-origin: 160px 145px;"/>
+
+  <!-- Orbiting dots — inner ring (r=60) -->
+  <g style="transform-origin:160px 145px" class="orbit3">
+    <circle cx="160" cy="145" r="5" fill="#4f8ef7" filter="url(#glow)"/>
+  </g>
+  <g style="transform-origin:160px 145px; animation: orbit3 6s 3s linear infinite reverse;">
+    <circle cx="160" cy="145" r="4" fill="#7c3aed" filter="url(#glow)" opacity="0.8"/>
+  </g>
+
+  <!-- Orbiting dots — middle ring (r=90) -->
+  <g style="transform-origin:160px 145px" class="orbit1">
+    <circle cx="160" cy="145" r="6" fill="#7c3aed" filter="url(#glow)"/>
+  </g>
+  <g style="transform-origin:160px 145px; animation: orbit1 8s 4s linear infinite;">
+    <circle cx="160" cy="145" r="4" fill="#4f8ef7" filter="url(#glow)" opacity="0.7"/>
+  </g>
+
+  <!-- Orbiting dots — outer ring (r=130) -->
+  <g style="transform-origin:160px 145px" class="orbit2">
+    <circle cx="160" cy="145" r="5" fill="#22c55e" filter="url(#glow)"/>
+  </g>
+  <g style="transform-origin:160px 145px; animation: orbit2 12s 6s linear infinite reverse;">
+    <circle cx="160" cy="145" r="4" fill="#f59e0b" filter="url(#glow)" opacity="0.8"/>
+  </g>
+
+  <!-- Center logo -->
+  <g class="float">
+    <!-- Center dark circle -->
+    <circle cx="160" cy="145" r="44" fill="#111118" stroke="#2a2a3a" stroke-width="1"/>
+    <circle cx="160" cy="145" r="44" fill="none" stroke="#4f8ef7" stroke-width="1" opacity="0.4" class="pulse-glow"/>
+
+    <!-- Vi·Bha text -->
+    <text x="160" y="138" class="brand" text-anchor="middle">
+      <tspan fill="#4f8ef7">Vi</tspan><tspan fill="#7c3aed">Bha</tspan>
+    </text>
+    <text x="160" y="154" class="sub-brand" text-anchor="middle">Tech</text>
+  </g>
+
+  <!-- Bottom label -->
+  <g class="fade-in">
+    <text x="160" y="298" font-family="'Space Mono', monospace" font-size="10"
+          fill="#55556a" text-anchor="middle" letter-spacing="3">KARUR · TAMIL NADU</text>
+    <text x="160" y="313" font-family="'Space Mono', monospace" font-size="9"
+          fill="#3a3a50" text-anchor="middle" letter-spacing="2">Fintech SaaS · Microfinance</text>
+  </g>
+
+</svg>

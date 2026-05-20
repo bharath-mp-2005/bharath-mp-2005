@@ -1,0 +1,55 @@
+{
+    "mobile": [
+        "Flutter",
+        "Dart",
+        "SQLite",
+        "Biometric Auth",
+        "Google Play"
+    ],
+    "languages": [
+        "PHP",
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "R",
+        "SQL"
+    ],
+    "web": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Bootstrap",
+        "AdminLTE"
+    ],
+    "backend": [
+        "PHP APIs",
+        "MySQL",
+        "Multi-tenant SaaS",
+        "Supabase"
+    ],
+    "ml_and_data": [
+        "TensorFlow",
+        "scikit-learn",
+        "XGBoost",
+        "Pandas",
+        "R Shiny"
+    ],
+    "infra": [
+        "Plesk Hosting",
+        "FTP Automation",
+        "PowerShell",
+        "Git"
+    ],
+    "payments": [
+        "Razorpay",
+        "UPI Payment Intents",
+        "GPay"
+    ],
+    "research": [
+        "BB-MAS Dataset",
+        "SMOTE",
+        "EMA Drift Correction",
+        "MLP",
+        "IEEE"
+    ]
+}
