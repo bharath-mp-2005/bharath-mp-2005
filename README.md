@@ -41,7 +41,7 @@ My software runs in the hands of loan officers and branch managers across Tamil 
 ## `> ls ~/projects`
 
 ```
-📁 vibha-tech/          → Multi-tenant fintech SaaS for microfinance institutions
+📁 phone-control/       → Wireless phone control app for scrolling and device actions over hotspot/Wi-Fi
 📁 xo-expense-tracker/  → Shared expense rooms with real-time balances (Supabase)
 📁 trustlance/          → Freelance marketplace with on-chain escrow + IPFS
 📁 bbmas-auth/          → Behavioral biometrics research framework (IEEE)
